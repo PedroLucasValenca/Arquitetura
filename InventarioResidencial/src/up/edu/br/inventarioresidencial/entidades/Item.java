@@ -17,8 +17,8 @@ public class Item {
 	private String nomeItem;
 	private int quantidade;
 	private Date dataArmazenamento;
-	private Local local;
-	private TipoDeUso tipoDeUso;
+	private String local ;
+	private String tipoDeUso ;
 	
 	
 	public long getId() {
@@ -45,18 +45,19 @@ public class Item {
 	public void setDataArmazenamento(Date dataArmazenamento) {
 		this.dataArmazenamento = dataArmazenamento;
 	}
-	public Local getLocal() {
+	public String getLocal() {
 		return local;
 	}
-	public void setLocal(Local local) {
+	public void setLocal(String local) {
 		this.local = local;
 	}
-	public TipoDeUso getTipoDeUso() {
+	public String getTipoDeUso() {
 		return tipoDeUso;
 	}
-	public void setTipoDeUso(TipoDeUso tipoDeUso) {
+	public void setTipoDeUso(String tipoDeUso) {
 		this.tipoDeUso = tipoDeUso;
 	}
+
 	
 	
 
