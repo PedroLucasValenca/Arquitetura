@@ -22,6 +22,7 @@ public class LocalDao implements Dao<Local> {
 	@Override
 	public void editar(Local local) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
+		em.getTransaction().begin();
 		em.merge(local);
 		em.getTransaction().commit();
 		

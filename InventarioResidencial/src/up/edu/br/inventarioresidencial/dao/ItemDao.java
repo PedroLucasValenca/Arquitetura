@@ -14,15 +14,23 @@ public class ItemDao implements Dao<Item> {
 		EntityManager em = Conexao.getInstance().createEntityManager();		
 		em.getTransaction().begin();
 		em.persist(item);
+		em.merge(item);
 		em.getTransaction().commit();
 		
 	}
 
 	@Override
 	public void editar(Item item) {
-		EntityManager em = Conexao.getInstance().createEntityManager();
-		em.merge(item);
-		em.getTransaction().commit();
+		
+		try {
+			EntityManager em = Conexao.getInstance().createEntityManager();
+			em.getTransaction().begin();
+			em.merge(item);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			e.getMessage().toString();
+		}
+		
 		
 		
 		

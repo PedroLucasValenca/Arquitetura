@@ -1,11 +1,11 @@
 package up.edu.br.inventarioresidencial.entidades;
 
-import java.util.Date;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -16,9 +16,11 @@ public class Item {
 	private long id;
 	private String nomeItem;
 	private int quantidade;
-	private Date dataArmazenamento;
-	private String local ;
-	private String tipoDeUso ;
+	private String dataArmazenamento;
+	@OneToOne(cascade=CascadeType.ALL)
+	private Local local ;
+	@OneToOne(cascade=CascadeType.ALL)	
+	private TipoDeUso tipoDeUso ;
 	
 	
 	public long getId() {
@@ -39,24 +41,26 @@ public class Item {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;	
 	}
-	public Date getDataArmazenamento() {
+	
+	public String getDataArmazenamento() {
 		return dataArmazenamento;
 	}
-	public void setDataArmazenamento(Date dataArmazenamento) {
+	public void setDataArmazenamento(String dataArmazenamento) {
 		this.dataArmazenamento = dataArmazenamento;
 	}
-	public String getLocal() {
+	public Local getLocal() {
 		return local;
 	}
-	public void setLocal(String local) {
+	public void setLocal(Local local) {
 		this.local = local;
 	}
-	public String getTipoDeUso() {
+	public TipoDeUso getTipoDeUso() {
 		return tipoDeUso;
 	}
-	public void setTipoDeUso(String tipoDeUso) {
+	public void setTipoDeUso(TipoDeUso tipoDeUso) {
 		this.tipoDeUso = tipoDeUso;
 	}
+	
 
 	
 	

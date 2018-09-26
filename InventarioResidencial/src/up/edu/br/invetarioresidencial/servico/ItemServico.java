@@ -24,4 +24,9 @@ public class ItemServico {
 		Dao<Item> itemDao = FabricaDao.createDaoItem();
 		itemDao.excluir(item);
 	}
+	
+	public void editar(Item item) {
+		Dao<Item> itemDao = FabricaDao.createDaoItem();
+				itemDao.editar(item);
+	}
 }

@@ -6,9 +6,12 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import io.swagger.annotations.Api;
 import up.edu.br.inventarioresidencial.dao.ItemDao;
@@ -48,6 +51,25 @@ public class ItemRest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
+	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void editar(Item item) {
+		
+		new ItemServico().editar(item);
+	}
+	
+	@GET
+	@Path("{id}")
+	public Response buscar(@PathParam("id") Long id)
+	{
+		Item item = new ItemDao().buscarPorId(id);
+		if(item == null)
+		{
+			return Response.status(Response.Status.NOT_FOUND).entity("item não encontrado").build();
+		}
+		return Response.ok(item).build();
 	}
 }
 	

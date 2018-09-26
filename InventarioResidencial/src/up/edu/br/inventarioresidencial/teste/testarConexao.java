@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 
 import up.edu.br.inventarioresidencial.dao.Conexao;
 import up.edu.br.inventarioresidencial.entidades.Item;
+import up.edu.br.inventarioresidencial.entidades.Local;
+import up.edu.br.inventarioresidencial.entidades.TipoDeUso;
 
 public class testarConexao {
 
@@ -13,13 +15,12 @@ public class testarConexao {
 		it.setNomeItem("CAMA");
 		it.setQuantidade(1);
 		// it.setDataArmazenamento(dataArmazenamento);
-		it.setLocal("locall");
-		it.setTipoDeUso(null);
-		EntityManager em = Conexao.getInstance().createEntityManager();
-		em.getTransaction().begin();
-		em.persist(it);
-		em.getTransaction().commit();
+		//it.setLocal("locall");
+		//it.setTipoDeUso(null);
+		
 
+		
+	
 	}
 
 }

@@ -21,6 +21,7 @@ public class TipoDeUsoDao implements Dao<TipoDeUso> {
 	@Override
 	public void editar(TipoDeUso tipoDeUso) {
 		EntityManager em = Conexao.getInstance().createEntityManager();
+		em.getTransaction().begin();
 		em.merge(tipoDeUso);
 		em.getTransaction().commit();
 		
